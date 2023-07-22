@@ -5,8 +5,9 @@ import "forge-std/Test.sol";
 
 import "../../../src/ERC6551Registry.sol";
 import "../../../src/examples/simple/SimpleERC6551Account.sol";
+import "../../../src/production/LensFrens.sol";
+import "../../../src/production/CommunityLedger.sol";
 import "../../mocks/MockERC721.sol";
-import "../../mocks/CommunityLedger.sol";
 import "../../mocks/MockERC6551Account.sol";
 
 contract LensFrensTest is Test {
@@ -47,6 +48,23 @@ contract LensFrensTest is Test {
     function testCall() public {
         // LensAccount1 deployed this contract, so he is the owner
         // of the community
+
+        CommunityLedger ledger = new CommunityLedger();
+
+        LensFrens lensFrens = new LensFrens(
+            "LensFrens",
+            "LFS",
+            address(ledger)
+        );
+
+        MockERC721 mockNft = new MockERC721();
+        mockNft.mint(vm.addr(1), 1);
+        address[] memory memberss = new address[](1);
+        memberss[0] = vm.addr(1);
+        lensFrens.createGroup(
+            "https://storage.googleapis.com/ethglobal-api-production/events%2Fzqd1s%2Flogo%2F1683191976395_paris_2023_logo.png",
+            memberss
+        );
 
         // 1- The creator of the community mints the NFT of the community
         MockERC721 ETHParisCommunity = new MockERC721();

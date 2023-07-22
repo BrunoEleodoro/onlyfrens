@@ -14,6 +14,7 @@ const CreateGroup: React.FC<{}> = () => {
     limit: 10,
   });
   console.log(search);
+
   return (
     <>
       <form>
@@ -23,7 +24,7 @@ const CreateGroup: React.FC<{}> = () => {
             type="text"
             name="name"
             placeholder="Name"
-            className="border-2 border-gray-300 rounded-md p-2"
+            className="p-2 border-2 border-gray-300 rounded-md"
           />
           Privacy type:
           {/* radio buttons */}
@@ -41,7 +42,7 @@ const CreateGroup: React.FC<{}> = () => {
             type="text"
             name="members"
             placeholder="Name"
-            className="border-2 border-gray-300 rounded-md p-2"
+            className="p-2 border-2 border-gray-300 rounded-md"
             value={selectedProfiles.join(', ')}
             disabled
           /> */}
@@ -50,7 +51,7 @@ const CreateGroup: React.FC<{}> = () => {
             {selectedProfiles.map((profile) => (
               <div
                 key={profile.id}
-                className="flex flex-row justify-between border-2 border-gray-300 rounded-md p-2 cursor-pointer "
+                className="flex flex-row justify-between p-2 border-2 border-gray-300 rounded-md cursor-pointer "
                 onClick={() =>
                   setSelectedProfiles(
                     selectedProfiles.filter((id) => id !== profile)
@@ -66,7 +67,7 @@ const CreateGroup: React.FC<{}> = () => {
             type="text"
             name="search"
             placeholder="Search"
-            className="border-2 border-gray-300 rounded-md p-2"
+            className="p-2 border-2 border-gray-300 rounded-md"
             onChange={(e) => setSearchQuery(e.target.value)}
           />
           {/* search results */}
@@ -78,7 +79,7 @@ const CreateGroup: React.FC<{}> = () => {
                 .map((profile) => (
                   <div
                     key={profile.id}
-                    className="flex flex-row justify-between border-2 border-gray-300 rounded-md p-2 cursor-pointer "
+                    className="flex flex-row justify-between p-2 border-2 border-gray-300 rounded-md cursor-pointer "
                     onClick={() => handleSelectProfile(profile)}
                   >
                     <div>{profile.handle}</div>
@@ -89,9 +90,9 @@ const CreateGroup: React.FC<{}> = () => {
           <br />
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
           >
-            Create
+            Create The group
           </button>
         </div>
       </form>

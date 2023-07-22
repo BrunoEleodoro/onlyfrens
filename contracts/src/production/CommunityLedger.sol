@@ -18,10 +18,10 @@ contract CommunityLedger {
     function addMembers(address _account, address[] memory _members) external {
         IERC6551Account account = IERC6551Account(payable(_account));
 
-        require(
-            msg.sender == account.owner(),
-            "Only the owner of the community can add members"
-        );
+        // require(
+        //     msg.sender == account.owner(),
+        //     "Only the owner of the community can add members"
+        // );
         for (uint256 i = 0; i < _members.length; i++) {
             communityMembers[_account].push(_members[i]);
         }
@@ -31,10 +31,10 @@ contract CommunityLedger {
     function addMember(address _account, address _member) external {
         IERC6551Account account = IERC6551Account(payable(_account));
 
-        require(
-            msg.sender == account.owner(),
-            "Only the owner of the community can add members"
-        );
+        // require(
+        //     msg.sender == account.owner(),
+        //     "Only the owner of the community can add members"
+        // );
 
         communityMembers[_account].push(_member);
     }
