@@ -139,12 +139,20 @@
     "type": "function"
   },
   {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "communityNames",
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
+      { "internalType": "string", "name": "name", "type": "string" },
       { "internalType": "string", "name": "image", "type": "string" },
       { "internalType": "address[]", "name": "members", "type": "address[]" }
     ],
     "name": "createGroup",
-    "outputs": [],
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "nonpayable",
     "type": "function"
   },

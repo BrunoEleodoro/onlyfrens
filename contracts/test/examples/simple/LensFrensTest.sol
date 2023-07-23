@@ -62,6 +62,7 @@ contract LensFrensTest is Test {
         address[] memory memberss = new address[](1);
         memberss[0] = vm.addr(1);
         lensFrens.createGroup(
+            "ETHParis",
             "https://storage.googleapis.com/ethglobal-api-production/events%2Fzqd1s%2Flogo%2F1683191976395_paris_2023_logo.png",
             memberss
         );
@@ -79,7 +80,7 @@ contract LensFrensTest is Test {
             0,
             ""
         );
-
+        ETHParisCommunity.mint(community, 2);
         // 3- He invites other lens users to join the community
         // by minting the Community Proof NFT into their accounts
         CommunityLedger communityLedger = new CommunityLedger();

@@ -24,6 +24,7 @@ contract LensFrens is ERC721, ERC721URIStorage, Ownable {
     SimpleERC6551Account public implementation;
     CommunityLedger public communityLedger;
     mapping(address => address[]) public ownersOfCommunities;
+    mapping(address => string) public communityNames;
 
     Counters.Counter private _tokenIdCounter;
 
@@ -37,7 +38,11 @@ contract LensFrens is ERC721, ERC721URIStorage, Ownable {
         communityLedger = CommunityLedger(communityLedgerAddress);
     }
 
-    function createGroup(string memory image, address[] memory members) public {
+    function createGroup(
+        string memory name,
+        string memory image,
+        address[] memory members
+    ) public returns (address) {
         _mint(msg.sender, _tokenIdCounter.current());
         _setTokenURI(_tokenIdCounter.current(), image);
         address community = registry.createAccount(
@@ -49,7 +54,9 @@ contract LensFrens is ERC721, ERC721URIStorage, Ownable {
             ""
         );
         ownersOfCommunities[msg.sender].push(community);
+        communityNames[community] = name;
         communityLedger.addMembers(community, members);
+        return community;
     }
 
     function getMyCommunities() public view returns (address[] memory) {

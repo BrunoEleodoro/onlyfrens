@@ -9,7 +9,11 @@ import {
 import * as React from 'react';
 import logo from './../../assets/logo.png';
 import createPost from './../../assets/create-post.jpg';
-import { useContractWrite, usePrepareContractWrite } from 'wagmi';
+import {
+  useContractWrite,
+  usePrepareContractWrite,
+  useWaitForTransaction,
+} from 'wagmi';
 import { BigNumber } from 'ethers';
 import LensFrens from '../../assets/LensFrens.json';
 
@@ -23,14 +27,25 @@ const CreateGroup: React.FC<{}> = () => {
     setSelectedProfiles([...selectedProfiles, profileId]);
   };
   const { config } = usePrepareContractWrite({
-    address: '0x48cfc9424f35c2899c208c762408E04c26E3E9e3',
+    address: '0xe661c29DFd8Ca424461DAE7A3aDe92F82bd456EE',
     value: BigInt(0),
     abi: LensFrens,
-    args: [groupName, selectedProfiles.map((profile) => profile.ownedBy)],
+    args: [
+      groupName,
+      'https://storage.googleapis.com/ethglobal-api-production/events%2Fzqd1s%2Flogo%2F1683191976395_paris_2023_logo.png',
+      selectedProfiles.map((profile) => profile.ownedBy),
+    ],
     functionName: 'createGroup',
   });
-  const { write, isLoading, isSuccess, data } = useContractWrite(config);
+  const { write, data } = useContractWrite(config);
 
+  const {
+    isLoading,
+    isSuccess,
+    data: dataTransaction,
+  } = useWaitForTransaction({
+    hash: data?.hash,
+  });
   // const { data: profiles, error, loading } = useProfilesOwnedByMe();
 
   const search = useSearchProfiles({
@@ -126,7 +141,7 @@ const CreateGroup: React.FC<{}> = () => {
           <br />
           {/* loading spinner */}
           {isSuccess && <div>Success</div>}
-          {data && <div>{data.toString()}</div>}
+          {dataTransaction && <div>{dataTransaction.toString()}</div>}
           {isLoading && (
             <div className="">
               {/* loading spinner */}
