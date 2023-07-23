@@ -6,7 +6,7 @@ ERC-6551 Standard to create communities that holds nfts of members, so every pla
 
 ### Contracts
 
-LensFrens ERC-6551 implemented: https://polygonscan.com/address/0x126Dd759FcE47e3D85207073777feAA25350B26E#code
+LensFrens ERC-6551 implemented: https://polygonscan.com/address/0x91de78d33aac5948654ffea3d2b35625c45d4bb5#code
 
 CommunityLedger: https://polygonscan.com/address/0x32bf852c06b424a907875cd03d68b827e30f3099#readContract
 
