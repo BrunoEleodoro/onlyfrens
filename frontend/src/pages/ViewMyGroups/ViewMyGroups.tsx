@@ -1,25 +1,11 @@
 import * as React from 'react';
 import { useAccount, useContractRead } from 'wagmi';
-import CommunityLedger from '../../assets/CommunityLedger.json';
 import LensFrens from '../../assets/LensFrens.json';
-import { ethers } from 'ethers';
-import { useQuery, gql } from '@apollo/client';
-import { useProfilesOwnedByMe } from '@lens-protocol/react-web';
 import GroupMembers from './GroupMembers';
-
-const EXCHANGE_RATES = gql`
-  query GetExchangeRates {
-    rates(currency: "AUD") {
-      currency
-      rate
-    }
-  }
-`;
 
 const ViewMyGroups = () => {
   const { address } = useAccount();
   const [communities, setCommunities] = React.useState<any>([]);
-  const [communityMembers, setCommunityMembers] = React.useState<any>({});
 
   const { data: communitiesFromChain } = useContractRead({
     abi: LensFrens,

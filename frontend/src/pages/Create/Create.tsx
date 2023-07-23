@@ -1,22 +1,14 @@
-import {
-  Media,
-  Profile,
-  useProfile,
-  useProfilesOwnedByMe,
-  useSearchProfiles,
-  useWalletLogin,
-} from '@lens-protocol/react-web';
+import { Profile, useSearchProfiles } from '@lens-protocol/react-web';
 import * as React from 'react';
-import logo from './../../assets/logo.png';
-import createPost from './../../assets/create-post.jpg';
+import { useNavigate } from 'react-router-dom';
 import {
   useContractWrite,
   usePrepareContractWrite,
   useWaitForTransaction,
 } from 'wagmi';
-import { BigNumber } from 'ethers';
 import LensFrens from '../../assets/LensFrens.json';
-import { useNavigate } from 'react-router-dom';
+import createPost from './../../assets/create-post.jpg';
+import logo from './../../assets/logo.png';
 
 const CreateGroup: React.FC<{}> = () => {
   const [searchQuery, setSearchQuery] = React.useState('');

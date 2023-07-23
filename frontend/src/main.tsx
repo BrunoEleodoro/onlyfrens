@@ -1,20 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
+import { ApolloProvider } from '@apollo/client';
+import { LensConfig, LensProvider, production } from '@lens-protocol/react-web';
+import { bindings as wagmiBindings } from '@lens-protocol/wagmi';
 import {
   EthereumClient,
   w3mConnectors,
   w3mProvider,
 } from '@web3modal/ethereum';
 import { Web3Modal } from '@web3modal/react';
-import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { WagmiConfig, configureChains, createConfig } from 'wagmi';
 import { arbitrum, mainnet, polygon } from 'wagmi/chains';
-import { LensConfig, development, production } from '@lens-protocol/react-web';
-import { bindings as wagmiBindings } from '@lens-protocol/wagmi';
-import { LensProvider } from '@lens-protocol/react-web';
-import { ApolloProvider } from '@apollo/client';
 import { client } from './ApolloClient.tsx';
+import App from './App.tsx';
+import './index.css';
 
 const lensConfig: LensConfig = {
   bindings: wagmiBindings(),

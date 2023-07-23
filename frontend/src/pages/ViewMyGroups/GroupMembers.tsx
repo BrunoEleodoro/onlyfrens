@@ -17,7 +17,7 @@ const GroupMembers: React.FC<{ community: string }> = ({ community }) => {
       <h1>Group Members</h1>
 
       {communityLedgetQuery.data &&
-        communityLedgetQuery.data?.map((address: any) => {
+        (communityLedgetQuery.data as any).map((address: any) => {
           return address + ', ';
         })}
     </div>

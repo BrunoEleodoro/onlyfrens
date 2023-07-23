@@ -1,9 +1,8 @@
-import { Web3Button, Web3Modal } from '@web3modal/react';
-import * as React from 'react';
+import { Web3Button } from '@web3modal/react';
+import { useNavigate } from 'react-router-dom';
+import { useAccount } from 'wagmi';
 import hero from '../../assets/hero.jpg';
 import logo from '../../assets/logo.png';
-import { useAccount } from 'wagmi';
-import { useNavigate } from 'react-router-dom';
 import LoginButton from '../../components/LoginButton';
 
 const Home = () => {
