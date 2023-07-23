@@ -18,7 +18,7 @@ const Home = () => {
           backgroundImage: `url(${hero})`,
         }}
       >
-        <div className="flex flex-col items-center justify-center bg-white rounded w-72 h-72 bg-opacity-20 backdrop-blur-lg drop-shadow-lg">
+        <div className="flex flex-col items-center justify-center bg-white rounded w-72 h-[450px] bg-opacity-20 backdrop-blur-lg drop-shadow-lg">
           <img src={logo} className="w-36" />
           <br />
           <Web3Button />
@@ -31,6 +31,13 @@ const Home = () => {
                 onClick={() => navigate('/create')}
               >
                 Create NFT Group
+              </button>
+              <br />
+              <button
+                className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+                onClick={() => navigate('/view')}
+              >
+                View My Communities
               </button>
             </>
           )}

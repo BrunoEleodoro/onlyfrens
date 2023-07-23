@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CreateGroup from './pages/Create/Create';
 import Test from './pages/Test/Test';
+import ViewMyGroups from './pages/ViewMyGroups/ViewMyGroups';
 
 function App() {
   const router = createBrowserRouter([
@@ -17,6 +18,10 @@ function App() {
     {
       path: '/create',
       element: <CreateGroup />,
+    },
+    {
+      path: '/view',
+      element: <ViewMyGroups />,
     },
     {
       path: '/test',

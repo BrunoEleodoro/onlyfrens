@@ -16,12 +16,14 @@ import {
 } from 'wagmi';
 import { BigNumber } from 'ethers';
 import LensFrens from '../../assets/LensFrens.json';
+import { useNavigate } from 'react-router-dom';
 
 const CreateGroup: React.FC<{}> = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
   const [selectedProfiles, setSelectedProfiles] = React.useState<Profile[]>([]);
   const [groupName, setGroupName] = React.useState('');
   const [privacy, setPrivacy] = React.useState('');
+  const navigate = useNavigate();
 
   const handleSelectProfile = (profileId: Profile) => {
     setSelectedProfiles([...selectedProfiles, profileId]);
@@ -173,6 +175,15 @@ const CreateGroup: React.FC<{}> = () => {
             className="px-4 py-2 font-bold text-white bg-[#6437AE] rounded hover:bg-blue-700"
           >
             Create The group
+          </button>
+          <br />
+          <button
+            onClick={() => {
+              navigate('/view');
+            }}
+            className="px-4 py-2 font-bold text-white bg-[#6437AE] rounded hover:bg-blue-700"
+          >
+            View existing communities
           </button>
         </div>
       </div>

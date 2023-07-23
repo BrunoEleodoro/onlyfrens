@@ -13,6 +13,8 @@ import { arbitrum, mainnet, polygon } from 'wagmi/chains';
 import { LensConfig, development, production } from '@lens-protocol/react-web';
 import { bindings as wagmiBindings } from '@lens-protocol/wagmi';
 import { LensProvider } from '@lens-protocol/react-web';
+import { ApolloProvider } from '@apollo/client';
+import { client } from './ApolloClient.tsx';
 
 const lensConfig: LensConfig = {
   bindings: wagmiBindings(),
@@ -34,7 +36,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <WagmiConfig config={wagmiConfig}>
       <LensProvider config={lensConfig}>
-        <App />
+        <ApolloProvider client={client}>
+          <App />
+        </ApolloProvider>
       </LensProvider>
     </WagmiConfig>
     <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
