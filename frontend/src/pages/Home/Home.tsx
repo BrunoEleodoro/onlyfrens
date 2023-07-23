@@ -4,6 +4,7 @@ import hero from '../../assets/hero.jpg';
 import logo from '../../assets/logo.png';
 import { useAccount } from 'wagmi';
 import { useNavigate } from 'react-router-dom';
+import LoginButton from '../../components/LoginButton';
 
 const Home = () => {
   const { address } = useAccount();
@@ -22,12 +23,16 @@ const Home = () => {
           <br />
           <Web3Button />
           {address && (
-            <button
-              className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
-              onClick={() => navigate('/create')}
-            >
-              Create NFT Group
-            </button>
+            <>
+              <LoginButton />
+              <br />
+              <button
+                className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+                onClick={() => navigate('/create')}
+              >
+                Create NFT Group
+              </button>
+            </>
           )}
         </div>
         {/* <div className="bg-white rounded w-72 h-72 bg-opacity-40 backdrop-blur-md drop-shadow-lg"></div> */}
