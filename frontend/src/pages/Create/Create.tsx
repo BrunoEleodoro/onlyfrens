@@ -21,7 +21,7 @@ const CreateGroup: React.FC<{}> = () => {
     setSelectedProfiles([...selectedProfiles, profileId]);
   };
   const { config } = usePrepareContractWrite({
-    address: '0xe661c29DFd8Ca424461DAE7A3aDe92F82bd456EE',
+    address: '0x126Dd759FcE47e3D85207073777feAA25350B26E',
     value: BigInt(0),
     abi: LensFrens,
     args: [

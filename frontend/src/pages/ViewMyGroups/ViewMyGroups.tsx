@@ -9,7 +9,7 @@ const ViewMyGroups = () => {
 
   const { data: communitiesFromChain } = useContractRead({
     abi: LensFrens,
-    address: '0xe661c29dfd8ca424461dae7a3ade92f82bd456ee',
+    address: '0x126Dd759FcE47e3D85207073777feAA25350B26E',
     args: [],
     functionName: 'getMyCommunities',
     account: address,

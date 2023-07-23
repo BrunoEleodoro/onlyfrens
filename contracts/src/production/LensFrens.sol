@@ -56,6 +56,7 @@ contract LensFrens is ERC721, ERC721URIStorage, Ownable {
         ownersOfCommunities[msg.sender].push(community);
         communityNames[community] = name;
         communityLedger.addMembers(community, members);
+        _tokenIdCounter.increment();
         return community;
     }
 

@@ -57,8 +57,6 @@ contract LensFrensTest is Test {
             address(ledger)
         );
 
-        MockERC721 mockNft = new MockERC721();
-        mockNft.mint(vm.addr(1), 1);
         address[] memory memberss = new address[](1);
         memberss[0] = vm.addr(1);
         lensFrens.createGroup(
