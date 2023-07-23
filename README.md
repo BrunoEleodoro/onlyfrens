@@ -4,6 +4,12 @@ OnlyFrens
 
 ERC-6551 Standard to create communities that holds nfts of members, so every platform you go you can bring your communities with you.
 
+### ERC 6551
+
+<img src="docs/transaction.png">
+<br/>
+<img src="docs/diagram.png">
+
 ### Contracts
 
 LensFrens ERC-6551 implemented: https://polygonscan.com/address/0x91de78d33aac5948654ffea3d2b35625c45d4bb5#code
